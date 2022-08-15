@@ -19,11 +19,19 @@ declare module "binary-mirror-config" {
   class MirrorConfig {
     constructor(config: MirrorConfigOptions);
   }
-  export const mirrors: {
+  interface mirrorsTypes {
     china: {
       ENVS: Record<string, string>;
       [x: string]: unknown;
     };
     MirrorConfig: MirrorConfig;
-  };
+  }
+
+  interface BinaryMirrorConfigType {
+    mirrors: mirrorsTypes;
+    MirrorConfig: MirrorConfig;
+  }
+
+  const BinaryMirrorConfig: BinaryMirrorConfigType;
+  export = BinaryMirrorConfig;
 }
