@@ -1,14 +1,14 @@
 {
-  "name": "typescript-boilerplate-2021",
-  "version": "0.4.2",
-  "description": "Boilerplate for TypeScript projects (Node.js and browser modules)",
-  "author": "Chris Hager <chris@linuxuser.at>",
-  "repository": "https://github.com/metachris/typescript-boilerplate",
+  "name": "binary-china-mirror",
+  "version": "0.0.1",
+  "description": "Binary china mirror",
+  "author": "javaswing <zxdlovejava@gmail.com>",
+  "repository": "https://github.com/javaswing/binary-china-mirror",
   "license": "MIT",
   "keywords": [
-    "typescript",
-    "boilerplate",
-    "esbuild"
+    "binary",
+    "china",
+    "mirror"
   ],
   "main": "./dist/tsc/main.js",
   "types": "./dist/tsc/main.d.ts",
@@ -44,5 +44,8 @@
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.15",
     "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "binary-mirror-config": "^2.6.0"
   }
 }
