@@ -5,6 +5,7 @@ export function setNpmrc(npmrcPath: string) {
   let content;
   try {
     content = fs.readFileSync(npmrcPath, "utf8");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error.code === "ENOENT") {
       // 文件不存在
@@ -25,7 +26,7 @@ export function setNpmrc(npmrcPath: string) {
     }
     const newContent = newEvn.join("\n");
     content !== newContent && fs.appendFileSync(npmrcPath, newContent);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error);
   }
 }

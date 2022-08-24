@@ -25,6 +25,7 @@
     ],
     "typeRoots": [
       "./src/typings",
+      "node_modules/@types"
     ],
     "lib": [
       "ES6",
