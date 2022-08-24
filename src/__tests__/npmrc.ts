@@ -1,5 +1,7 @@
 import { getSpeedUpEnv } from "../npmrc";
 
-test("getSpeedUpEnv", () => {
-  expect(getSpeedUpEnv()).not.toBeNull();
+describe("npmrc test", () => {
+  test("getSpeedUpEnv", () => {
+    expect(getSpeedUpEnv()).not.toBeNull();
+  });
 });
