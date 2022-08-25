@@ -1,7 +1,7 @@
 import path from "path";
-import { setNpmrc } from "./npmrc";
+import { setRcFile } from "./gen";
 
 export function init() {
   const npmrcPath = path.resolve(process.cwd(), ".npmrc");
-  setNpmrc(npmrcPath);
+  setRcFile(npmrcPath);
 }
