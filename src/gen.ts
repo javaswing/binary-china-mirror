@@ -1,38 +1,56 @@
 import BinaryMirrorConfig from "binary-mirror-config";
 import fs from "fs";
+import fse from "fs-extra";
 
-export function setRcFile(rcPath: string) {
-  let content;
+export function setRcFile(
+  rcFilePath: string,
+  content: Record<string, unknown>,
+  isYarn?: boolean
+) {
+  let oldContent;
   try {
-    content = fs.readFileSync(rcPath, "utf8");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    oldContent = fs.readFileSync(rcFilePath, "utf8");
   } catch (error: any) {
-    if (error.code === "ENOENT") {
+    if ("code" in error && error.code === "ENOENT") {
       // 文件不存在
-      fs.writeFileSync(rcPath, "");
+      return;
     } else {
-      console.log(error);
+      throw error;
     }
   }
   try {
-    const isYarn = rcPath.indexOf(".yarn") > -1;
-    const speedEnvConfig = getSpeedUpEnv();
-    const newEvn: string[] = [];
-    Object.keys(speedEnvConfig).forEach((key) => {
-      const lineStr = isYarn
-        ? `${key} ${speedEnvConfig[key]}`
-        : `${key}=${speedEnvConfig[key]}`;
-      newEvn.push(lineStr);
-    });
-
-    if (newEvn[newEvn.length - 1]) {
-      newEvn.push("");
+    if (oldContent) {
+      console.log("oldContent :>> ", oldContent.match(/^.*$/gm));
+      const splitArr = oldContent
+        .match(/^.*$/gm)
+        ?.filter(Boolean)
+        .filter((s: string) => {
+          const reg = isYarn ? /^(.+?)\s\s*/ : /^(.+?)\s*=/;
+          if (!reg.test(s)) {
+            RegExp.$1.toLowerCase();
+          }
+        });
+    } else {
+      const config = parseObjToString(content, isYarn);
+      fse.outputFileSync(rcFilePath, config);
     }
-    const newContent = newEvn.join("\n");
-    content !== newContent && fs.appendFileSync(rcPath, newContent);
   } catch (error: unknown) {
     console.error(error);
   }
+}
+
+function parseObjToString(obj: Record<string, unknown>, isYarn?: boolean) {
+  const newEvn: string[] = [];
+  Object.keys(obj).forEach((key) => {
+    const lineStr = isYarn ? `${key} ${obj[key]}` : `${key}=${obj[key]}`;
+    newEvn.push(lineStr);
+  });
+
+  if (newEvn[newEvn.length - 1]) {
+    newEvn.push("");
+  }
+  const newContent = newEvn.join("\n");
+  return newContent;
 }
 
 export function getSpeedUpEnv() {

@@ -1,4 +1,4 @@
-import { unlinkSync } from "fs";
+import { existsSync, writeFileSync } from "fs";
 import path from "path";
 import { getSpeedUpEnv, setRcFile } from "../gen";
 
@@ -37,11 +37,17 @@ test("getSpeedUpEnv", () => {
 //   const env = getSpeedUpEnv();
 // });
 
-describe("gen npmrc test", () => {
+describe("config file test", () => {
   const mockFile = path.join(__dirname, ".npmrc");
-  afterEach(() => unlinkSync(mockFile));
+  // afterEach(() => unlinkSync(mockFile));
 
   test("create a npmrc file", async () => {
-    await setRcFile(mockFile);
+    if (!existsSync(mockFile)) {
+      writeFileSync(mockFile, "");
+    }
+  });
+
+  test("write a npmrc file", async () => {
+    setRcFile(mockFile, { mock: "323", mocke2: "323" });
   });
 });
