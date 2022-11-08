@@ -63,9 +63,17 @@ function parseObjToString(
   return newContent;
 }
 
+/**
+ * get speed env
+ * @returns
+ * @see https://opensumi.com/zh/docs/integrate/quick-start/electron
+ */
 export function getSpeedUpEnv() {
   return {
     registry: "https://registry.npmmirror.com",
+    // add electron custom dir
+    // @see https://www.electronjs.org/docs/latest/tutorial/installation#mirror
+    ELECTRON_CUSTOM_DIR: "{{ version }}",
     ...BinaryMirrorConfig.mirrors.china.ENVS,
   };
 }

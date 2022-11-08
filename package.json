@@ -46,6 +46,7 @@
     "binary-mirror-config": "^2.6.0",
     "fs-extra": "^10.1.0",
     "is-docker": "^3.0.0",
-    "lru-cache": "^7.14.0"
+    "lru-cache": "^7.14.0",
+    "urllib": "^3.5.0"
   }
 }

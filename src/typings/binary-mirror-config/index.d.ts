@@ -32,6 +32,6 @@ declare module "binary-mirror-config" {
     MirrorConfig: MirrorConfig;
   }
 
-  const BinaryMirrorConfig: BinaryMirrorConfigType;
-  export = BinaryMirrorConfig;
+  const BinaryMirrorConfigType: BinaryMirrorConfigType;
+  export = BinaryMirrorConfigType;
 }
