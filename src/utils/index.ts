@@ -1,13 +1,13 @@
 import { execSync } from "child_process";
 import path from "path";
 import LRUCache from "lru-cache";
-import fs from "fs";
+import fs from "fs-extra";
 
 let _hasYarn: boolean;
 
 const _yarnProjects = new LRUCache<string, boolean>({
   max: 10,
-  maxAge: 1000,
+  ttl: 1000,
 });
 
 export const hasProjectYarn = (cwd: string) => {
@@ -42,9 +42,9 @@ export const hasYarn = () => {
   }
 };
 
-const _npmProjects = new LRUCache({
+const _npmProjects = new LRUCache<string, boolean>({
   max: 10,
-  maxAge: 1000,
+  ttl: 1000,
 });
 
 export const hasProjectNpm = (cwd: string) => {

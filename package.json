@@ -13,7 +13,7 @@
   "main": "./dist/tsc/main.js",
   "types": "./dist/tsc/main.d.ts",
   "bin": {
-    "my-cli-tool": "./dist/esbuild/cli.js"
+    "binary-china-mirror": "./dist/esbuild/cli.js"
   },
   "scripts": {
     "cli": "ts-node src/cli.ts",
