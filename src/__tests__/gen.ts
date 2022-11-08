@@ -1,4 +1,4 @@
-import { existsSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, unlinkSync, writeFileSync } from "fs-extra";
 import path from "path";
 import { getSpeedUpEnv, setRcFile } from "../gen";
 
@@ -31,23 +31,44 @@ test("getSpeedUpEnv", () => {
   });
 });
 
-// @todo electron sql3 test script
-
-// describe("rc config", () => {
-//   const env = getSpeedUpEnv();
-// });
-
 describe("config file test", () => {
-  const mockFile = path.join(__dirname, ".npmrc");
-  // afterEach(() => unlinkSync(mockFile));
+  const mockNpmFile = path.join(__dirname, ".npmrc");
+  const mockYarnFile = path.join(__dirname, ".yarnrc");
 
-  test("create a npmrc file", async () => {
-    if (!existsSync(mockFile)) {
-      writeFileSync(mockFile, "");
+  beforeAll(() => {
+    if (!existsSync(mockNpmFile)) {
+      writeFileSync(mockNpmFile, "");
+    }
+
+    if (!existsSync(mockYarnFile)) {
+      writeFileSync(mockYarnFile, "");
     }
   });
 
+  afterAll(() => {
+    unlinkSync(mockNpmFile);
+    unlinkSync(mockYarnFile);
+  });
+
   test("write a npmrc file", async () => {
-    setRcFile(mockFile, { mock: "323", mocke2: "323" });
+    setRcFile(mockNpmFile, { mock: "323", mock2: "mock2" });
+    const content = readFileSync(mockNpmFile, "utf-8");
+    expect(content).toEqual("mock=323\nmock2=mock2\n");
+  });
+
+  test("write a yarnrc file", async () => {
+    setRcFile(
+      mockYarnFile,
+      {
+        mock: "323",
+        registry: "https://registry.npm.taobao.org",
+      },
+      true
+    );
+
+    const content = readFileSync(mockYarnFile, "utf-8");
+    expect(content).toEqual(
+      "mock 323\nregistry https://registry.npm.taobao.org\n"
+    );
   });
 });

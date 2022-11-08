@@ -20,16 +20,24 @@ export function setRcFile(
   }
   try {
     if (oldContent) {
-      console.log("oldContent :>> ", oldContent.match(/^.*$/gm));
+      // filter oldContent props in content vars by key
+      // @see https://stackoverflow.com/questions/31906705/alternative-to-deprecated-regexp-n-object-properties
       const splitArr = oldContent
         .match(/^.*$/gm)
         ?.filter(Boolean)
         .filter((s: string) => {
           const reg = isYarn ? /^(.+?)\s\s*/ : /^(.+?)\s*=/;
-          if (!reg.test(s)) {
-            RegExp.$1.toLowerCase();
+          if (reg.test(s)) {
+            const catchKey = (reg.exec(s) || [])[1] || "";
+            return !(catchKey && catchKey in content);
           }
+          return false;
         });
+
+      const newSplitArr = parseObjToString(content, isYarn, splitArr);
+      if (newSplitArr !== oldContent) {
+        fse.outputFileSync(rcFilePath, newSplitArr);
+      }
     } else {
       const config = parseObjToString(content, isYarn);
       fse.outputFileSync(rcFilePath, config);
@@ -39,17 +47,20 @@ export function setRcFile(
   }
 }
 
-function parseObjToString(obj: Record<string, unknown>, isYarn?: boolean) {
-  const newEvn: string[] = [];
+function parseObjToString(
+  obj: Record<string, unknown>,
+  isYarn?: boolean,
+  sourceArr: any[] = []
+) {
   Object.keys(obj).forEach((key) => {
     const lineStr = isYarn ? `${key} ${obj[key]}` : `${key}=${obj[key]}`;
-    newEvn.push(lineStr);
+    sourceArr.push(lineStr);
   });
 
-  if (newEvn[newEvn.length - 1]) {
-    newEvn.push("");
+  if (sourceArr[sourceArr.length - 1]) {
+    sourceArr.push("");
   }
-  const newContent = newEvn.join("\n");
+  const newContent = sourceArr.join("\n");
   return newContent;
 }
 
