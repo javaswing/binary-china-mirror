@@ -8,8 +8,18 @@
 ## 目前包含的依赖源
 
 - [nvm](https://github.com/nvm-sh/nvm)
-- [ChromeDriver](https://www.npmjs.com/package/chromedriver)
+- [x] [ChromeDriver](https://www.npmjs.com/package/chromedriver)
 - [nwjs](https://github.com/nwjs/nw.js)
-- [Electron](https://www.npmjs.com/package/electron)
-- [node-sass](https://github.com/sass/node-sass)
+- [x] [Electron](https://www.npmjs.com/package/electron)
+- [x] [node-sass](https://github.com/sass/node-sass)
 - [swc-node](https://github.com/swc-project/swc-node)
+- [Playwright]
+- [node-gyp]
+- [sqlite3]
+- [sentrycli]
+- [OperaDriver]
+- [phantomjs]
+- [Puppeteer]
+- [node-re2](https://github.com/uhop/node-re2)
+- [headless-gl](https://github.com/stackgl/headless-gl)
+- [grpc](https://github.com/grpc/grpc-node)

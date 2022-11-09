@@ -1,5 +1,6 @@
 import BinaryMirrorConfig from "binary-mirror-config";
 import fs from "fs-extra";
+import { otherConfigMirror } from "./constants";
 
 export function setRcFile(
   rcFilePath: string,
@@ -52,7 +53,11 @@ function parseObjToString(
   sourceArr: any[] = []
 ) {
   Object.keys(obj).forEach((key) => {
-    const lineStr = isYarn ? `${key} ${obj[key]}` : `${key}=${obj[key]}`;
+    // must use lower in yarnrc or npmrcfile
+    const formatKey = key.toLowerCase();
+    const lineStr = isYarn
+      ? `${formatKey} ${obj[key]}`
+      : `${formatKey}=${obj[key]}`;
     sourceArr.push(lineStr);
   });
 
@@ -73,7 +78,8 @@ export function getSpeedUpEnv() {
     registry: "https://registry.npmmirror.com",
     // add electron custom dir
     // @see https://www.electronjs.org/docs/latest/tutorial/installation#mirror
-    ELECTRON_CUSTOM_DIR: "{{ version }}",
+    // ELECTRON_CUSTOM_DIR: "{{ version }}",
     ...BinaryMirrorConfig.mirrors.china.ENVS,
+    ...otherConfigMirror,
   };
 }

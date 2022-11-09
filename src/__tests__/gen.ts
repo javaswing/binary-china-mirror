@@ -3,7 +3,7 @@ import path from "path";
 import { getSpeedUpEnv, setRcFile } from "../gen";
 
 test("getSpeedUpEnv", () => {
-  expect(getSpeedUpEnv()).toEqual({
+  expect(getSpeedUpEnv()).toContain({
     NODEJS_ORG_MIRROR: "https://cdn.npmmirror.com/binaries/node",
     NVM_NODEJS_ORG_MIRROR: "https://cdn.npmmirror.com/binaries/node",
     PHANTOMJS_CDNURL: "https://cdn.npmmirror.com/binaries/phantomjs",
