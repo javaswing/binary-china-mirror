@@ -16,15 +16,15 @@ declare module "binary-mirror-config" {
     console?: unknown;
   }
 
-  class MirrorConfig {
-    constructor(config: MirrorConfigOptions);
+  interface MirrorConfigInterface {
+    new (config: MirrorConfigOptions);
   }
   interface mirrorsTypes {
     china: {
       ENVS: Record<string, string>;
       [x: string]: unknown;
     };
-    MirrorConfig: MirrorConfig;
+    MirrorConfig: MirrorConfigInterface;
   }
 
   interface BinaryMirrorConfigType {

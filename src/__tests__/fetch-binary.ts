@@ -14,8 +14,6 @@ describe("fetch binary test file", () => {
       .reply(500)
       .times(2);
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const mirrorConfig = new MirrorConfig({
       retryCount: 2,
       retryTimeout: 300,

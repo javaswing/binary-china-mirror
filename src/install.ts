@@ -22,8 +22,13 @@ const configFile = usrConfig
   ? path.resolve(usrConfig)
   : path.join(os.homedir(), ".npmrc");
 
+type ConfigType = {
+  filePath: string;
+  isYarn: boolean;
+};
+
 function genConfigFileList() {
-  const targetFileConfig: { filePath: string; isYarn: boolean }[] = [];
+  const targetFileConfig: ConfigType[] = [];
   if (hasYarn()) {
     targetFileConfig.push({
       filePath: path.join(os.homedir(), ".yarnrc"),
@@ -36,6 +41,6 @@ function genConfigFileList() {
 }
 
 // batch write npmrc yarnrc
-genConfigFileList().forEach((c: { filePath: string; isYarn: boolean }) => {
+genConfigFileList().forEach((c: ConfigType) => {
   setRcFile(c.filePath, getSpeedUpEnv(), c.isYarn);
 });
