@@ -74,12 +74,26 @@ function parseObjToString(
  * @see https://opensumi.com/zh/docs/integrate/quick-start/electron
  */
 export function getSpeedUpEnv() {
+  const bmc = BinaryMirrorConfig.mirrors.china.ENVS;
+  const filterKeys = [
+    "CYPRESS_DOWNLOAD_PATH_TEMPLATE",
+    "OPERADRIVER_CDNURL",
+    "RE2_DOWNLOAD_MIRROR",
+    "RE2_DOWNLOAD_SKIP_PATH",
+  ];
+  const filterMirror = Object.keys(bmc).reduce(
+    (prev: Record<string, string>, curr) => {
+      if (!filterKeys.includes(curr)) {
+        prev[curr] = bmc[curr];
+      }
+      return prev;
+    },
+    {}
+  );
+
   return {
     registry: "https://registry.npmmirror.com",
-    // add electron custom dir
-    // @see https://www.electronjs.org/docs/latest/tutorial/installation#mirror
-    // ELECTRON_CUSTOM_DIR: "{{ version }}",
-    ...BinaryMirrorConfig.mirrors.china.ENVS,
+    ...filterMirror,
     ...otherConfigMirror,
   };
 }

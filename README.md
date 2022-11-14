@@ -7,19 +7,20 @@
 
 ## 目前包含的依赖源
 
-- [nvm](https://github.com/nvm-sh/nvm)
+- [x] [nvm](https://github.com/nvm-sh/nvm)
 - [x] [ChromeDriver](https://www.npmjs.com/package/chromedriver)
-- [nwjs](https://github.com/nwjs/nw.js)
+- [x][nwjs](https://github.com/nwjs/nw.js)
 - [x] [Electron](https://www.npmjs.com/package/electron)
 - [x] [node-sass](https://github.com/sass/node-sass)
-- [swc-node](https://github.com/swc-project/swc-node)
-- [Playwright]
-- [node-gyp]
-- [sqlite3]
-- [sentrycli]
-- [OperaDriver]
-- [phantomjs]
-- [Puppeteer]
-- [node-re2](https://github.com/uhop/node-re2)
-- [headless-gl](https://github.com/stackgl/headless-gl)
-- [grpc](https://github.com/grpc/grpc-node)
+- [x] [swc-node](https://github.com/swc-project/swc-node)
+- [x] [Playwright]
+- [x] [node-gyp]
+- [ ] [sqlite3]
+- [x] [better-sqlite3]
+- [x] [sentrycli]
+- [ ] [OperaDriver]
+- [x] [phantomjs]
+- [x] [Puppeteer]
+- [x] [node-re2](https://github.com/uhop/node-re2)
+- [x] [headless-gl](https://github.com/stackgl/headless-gl)
+- [x][grpc](https://github.com/grpc/grpc-node)

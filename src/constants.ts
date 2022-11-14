@@ -3,8 +3,8 @@ export const otherConfigMirror = {
   "python-mirror": "https://npmmirror.com/mirrors/python",
 
   // sqlite3
-  "sqlite3-binary-site": "https://npmmirror.com/mirrors/sqlite3",
-  "node-sqlite3-binary-host-mirror": "https://npmmirror.com/mirrors",
+  // "sqlite3-binary-site": "https://npmmirror.com/mirrors/sqlite3",
+  // "node-sqlite3-binary-host-mirror": "https://npmmirror.com/mirrors",
 
   // node-gyp
   // need to path
@@ -21,6 +21,9 @@ export const otherConfigMirror = {
 
   // grpc
   "grpc-node-binary-host-mirror": "https://npmmirror.com/mirrors",
+
+  // @todo
+  // CYPRESS_DOWNLOAD_MIRROR: "https://cdn.npmmirror.com/binaries/cypress/",
 
   // node-pre-gyp
   // ref: https://github.com/mapbox/node-pre-gyp/pull/170
