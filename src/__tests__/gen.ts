@@ -12,7 +12,6 @@ describe("test getSeepUpEnv", () => {
         NVM_NODEJS_ORG_MIRROR: "https://cdn.npmmirror.com/binaries/node",
         PHANTOMJS_CDNURL: "https://cdn.npmmirror.com/binaries/phantomjs",
         CHROMEDRIVER_CDNURL: "https://cdn.npmmirror.com/binaries/chromedriver",
-        OPERADRIVER_CDNURL: "https://cdn.npmmirror.com/binaries/operadriver",
         ELECTRON_MIRROR: "https://cdn.npmmirror.com/binaries/electron/",
         ELECTRON_BUILDER_BINARIES_MIRROR:
           "https://cdn.npmmirror.com/binaries/electron-builder-binaries/",
@@ -25,8 +24,7 @@ describe("test getSeepUpEnv", () => {
           "https://cdn.npmmirror.com/binaries/saucectl",
         PLAYWRIGHT_DOWNLOAD_HOST:
           "https://cdn.npmmirror.com/binaries/playwright",
-        RE2_DOWNLOAD_MIRROR: "https://cdn.npmmirror.com/binaries/node-re2",
-        RE2_DOWNLOAD_SKIP_PATH: "true",
+
         npm_config_keytar_binary_host:
           "https://cdn.npmmirror.com/binaries/keytar",
         npm_config_sharp_binary_host:
