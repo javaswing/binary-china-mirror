@@ -16,7 +16,7 @@
     "binary-china-mirror": "./dist/esbuild/cli.js"
   },
   "scripts": {
-    "install": "ts-node src/main.ts",
+    "install": "node ./dist/tsc/main.js",
     "cli": "ts-node src/cli.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
