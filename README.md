@@ -21,7 +21,8 @@ binary-china-mirror
 ## 在Docker中使用
 ```dockerfile
 RUN npm config set registry https://registry.npmmirror.com \
-  && npm install --unsafe-perm -g mirror-config-china
+  && npm install --unsafe-perm -g binary-china-mirror
+
 
 # 安装全部依赖
 RUN npm ci
