@@ -35,20 +35,20 @@ RUN npm ci
 
 ## 目前包含的依赖源
 
-- [x] [nvm](https://github.com/nvm-sh/nvm)
-- [x] [ChromeDriver](https://www.npmjs.com/package/chromedriver)
-- [x] [nwjs](https://github.com/nwjs/nw.js)
-- [x] [Electron](https://www.npmjs.com/package/electron)
-- [x] [node-sass](https://github.com/sass/node-sass)
-- [x] [swc-node](https://github.com/swc-project/swc-node)
-- [x] [Playwright](https://www.npmjs.com/package/playwright)
-- [x] [node-gyp](https://www.npmjs.com/package/node-gyp)
-- [ ] [sqlite3]
-- [x] [better-sqlite3](https://www.npmjs.com/package/better-sqlite3)
-- [x] [sentrycli](https://www.npmjs.com/package/@sentry/cli)
-- [ ] [OperaDriver]
-- [x] [phantomjs](https://phantomjs.org/)
-- [x] [Puppeteer](https://www.npmjs.com/package/puppeteer)
-- [x] [node-re2](https://github.com/uhop/node-re2)
-- [x] [headless-gl](https://github.com/stackgl/headless-gl)
-- [x] [grpc](https://github.com/grpc/grpc-node)
+- [nvm](https://github.com/nvm-sh/nvm)
+- [ChromeDriver](https://www.npmjs.com/package/chromedriver)
+- [nwjs](https://github.com/nwjs/nw.js)
+- [Electron](https://www.npmjs.com/package/electron)
+- [node-sass](https://github.com/sass/node-sass)
+- [swc-node](https://github.com/swc-project/swc-node)
+- [Playwright](https://www.npmjs.com/package/playwright)
+- [node-gyp](https://www.npmjs.com/package/node-gyp)
+- [sqlite3]
+- [better-sqlite3](https://www.npmjs.com/package/better-sqlite3)
+- [sentrycli](https://www.npmjs.com/package/@sentry/cli)
+- [OperaDriver]
+- [phantomjs](https://phantomjs.org/)
+- [Puppeteer](https://www.npmjs.com/package/puppeteer)
+- [node-re2](https://github.com/uhop/node-re2)
+- [headless-gl](https://github.com/stackgl/headless-gl)
+- [grpc](https://github.com/grpc/grpc-node)
