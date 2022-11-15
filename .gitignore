@@ -4,6 +4,8 @@
 /dist/
 /docs/
 .idea/*
+yarn.lock
+package-lock.json
 
 .DS_Store
 coverage

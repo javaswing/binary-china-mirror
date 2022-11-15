@@ -21,12 +21,21 @@
     "outDir": "./dist/tsc/",
     "types": [
       "node",
-      "jest"
+      "jest",
+    ],
+    "typeRoots": [
+      "./src/typings",
+      "node_modules/@types"
     ],
     "lib": [
       "ES6",
       "DOM"
-    ]
+    ],
+    "paths": {
+      "binary-mirror-config": [
+        "./src/typings/binary-mirror-config"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts"
