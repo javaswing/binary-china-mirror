@@ -1,6 +1,6 @@
 {
   "name": "binary-china-mirror",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Binary china mirror",
   "author": "javaswing <zxdlovejava@gmail.com>",
   "repository": "https://github.com/javaswing/binary-china-mirror",
@@ -16,6 +16,7 @@
     "binary-china-mirror": "./dist/esbuild/cli.js"
   },
   "scripts": {
+    "install": "ts-node src/main.ts",
     "cli": "ts-node src/cli.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
