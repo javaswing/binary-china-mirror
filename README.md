@@ -1,4 +1,4 @@
-# Binary-china-mirror
+# binary-china-mirror
 解决国内安装npm依赖时，需要安装国外binary库的问题，让你摆脱安装失败问题。
 
 
@@ -15,6 +15,7 @@ npm config list
 
 ```
 cd ~/my-project
+# 命令会自动根据当前项目用yarn或者npm自动生成对应的rc文件
 binary-china-mirror
 ```
 

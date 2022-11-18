@@ -56,7 +56,7 @@ function parseObjToString(
     // must use lower in yarnrc or npmrcfile
     const formatKey = key.toLowerCase();
     const lineStr = isYarn
-      ? `${formatKey} ${obj[key]}`
+      ? `${formatKey} "${obj[key]}"`
       : `${formatKey}=${obj[key]}`;
     sourceArr.push(lineStr);
   });
